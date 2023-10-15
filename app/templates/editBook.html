@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../static/css/editBook.css">
+	<!-- Boxicons CSS -->
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<!-- Bootstrap CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>HomeLIB - EditBook</title>
+  </head>
+  
+  <body {% if modelBody == 'Dark' %}class="Dark"{%endif%}>
+
+    {% for message in get_flashed_messages() %}
+	
+	<div class="alert alert-warning alert-dismissible fade show hideMe" role="alert">
+        <strong class="hideMe">{{message}}</strong> 
+      </div>
+
+    {% endfor %}
+
+    <div>
+        <nav class="sidebar">
+            <header>
+            <div>
+            </div>
+                <div class="image-text">
+                    <span class="image">
+                        <img src="../static/images/interface/logo_czarne.png" id="logo" alt="logo">
+                    </span>
+                
+                    <div class="text header-text">
+                        <span class="name">
+                            <img src="../static/images/interface/logo_tekst_czarne.png" id="logo2" alt="logo"> 
+                        </span>	
+                    </div>
+                </div>
+                
+                <i class='bx bx-chevron-right toggle' id="arrow"></i>
+            </header>
+            
+            <div class="menu-bar">
+                <div class="manu">
+                    
+                    <ul class="menu-links">	       
+                        <li class="nav-link">
+                             <a href="{{ url_for('index') }}">
+                                <i class='bx bx-library icon' ></i>
+                                <span class="text nav-text">
+                                    Library
+                                </span>
+                             </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="{{ url_for('bookDetails', id=book_to_edit.id)}}">
+                               <i class='bx bx-book-content icon'></i>
+                               <span class="text nav-text">
+                                   Book Details
+                               </span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#"  class="background">
+                               <i class='bx bxs-edit icon' ></i>
+                               <span class="text nav-text">
+                                   Edit Book
+                               </span>
+                            </a>
+                        </li>	
+                        <li class="nav-link">
+                            <a href="{{ url_for('addBook') }}">
+                               <i class='bx bx-plus-circle icon' ></i>
+                               <span class="text nav-text">
+                                   Add Book
+                               </span>
+                            </a>
+                        </li>	
+                        <li class="nav-link">
+                             <a href="{{ url_for('cont') }}">
+                                <i class='bx bxs-contact icon' ></i>
+                                <span class="text nav-text">
+                                    Contacts
+                                </span>
+                             </a>
+                        </li>
+                        <li class="nav-link">
+                             <a href="{{ url_for('rentBooks') }}">
+                                <i class='bx bx-book-bookmark icon' ></i>
+                                <span class="text nav-text">
+                                    Rent books 
+                                </span>
+                             </a>
+                        </li>
+						<li id="space"></li>
+						<li id="space"></li>
+						<li id="space"></li>																															
+						<li id="space"></li>																															
+                        <li id="space">
+                            <img id="line2" src="../static/images/interface/line.png" />
+                        </li>
+                        <li id="space"></li>																																				
+                        <li class="nav-link" style="margin-top: -3.29rem;">
+                             <a href="{{ url_for('userOption', id=id) }}">
+                                <i class='bx bxs-cog icon'></i>
+                                <span class="text nav-text rem1" >
+                                    User Options
+                                </span>
+                             </a>
+                        </li>
+                        <li class="nav-link">
+                             <a href="{{ url_for('logout') }}">
+                                <i class='bx bx-log-out icon' ></i>
+                                <span class="text nav-text rem1">
+                                    Logout
+                                </span>
+                             </a>
+                        </li>
+                        <form method="POST">
+                        <li class="mode">                    
+                            <div class="moon-sun">
+                                <i class='bx bx-moon icon moon' id="moon" ></i>
+                                <i class='bx bx-sun icon sun' id="sun" ></i>
+                            </div> 
+                            <span id="modeText"class="mode-text text rem1" name="DarkMode">
+                                Dark Mode
+                            </span>
+                            <div class="toggle-switch">
+                                <span class="switch">						
+                                </span>
+                            </div>          
+                        </li>
+                    </form>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="home" id="homeMode">
+            <form action="/editBook/{{book_to_edit.id}}" method='POST'>
+                {{ form.hidden_tag() }}    
+            <div class="text" id="result"><a href="{{ url_for('index') }}">Library</a>\<a href="{{ url_for('bookDetails', id=book_to_edit.id) }}">Book Details</a>\<a href="#">Edit Book</a></div>
+            <div class="container">
+                <div class="Photo">
+                    <img id="photo" src="{{ book_to_edit.cover_url}}" class="card-img-top" alt="{{book_to_edit.title }}"> 
+                </div>
+                <div class="Direction"></div>
+                <div class="Buttons">
+                    <i class='bx bxs-edit buttonicon'></i>{{ form.submit(class="updatebook", id="updatebook", value="Update Book") }}
+                </div>
+                <div class="Descriptions">
+                    <div class="Text">Book description:</div>
+                    <form action="{{ url_for('bookDetails', id=book_to_edit.id) }}" method="get">
+                            {{ form.description(class="form-control BookDescription", rows="20", column="1", id="textarea", maxlength="850") }}                                          
+                    </form>
+                </div>
+                <ul class="rate-area" id="star">
+                    {% if book_to_edit.rate == '1' %}
+                    <input type="radio" id="5-star" name="rating" value="5" /><label for="5-star" title="Amazing">5 stars</label>
+                    <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Good">4 stars</label>
+                    <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average">3 stars</label>
+                    <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good">2 stars</label>
+                    <input type="radio" id="1-star" name="rating" value="1" checked /><label for="1-star" title="Bad">1 star</label>
+                {% elif book_to_edit.rate == '2' %}
+                    <input type="radio" id="5-star" name="rating" value="5" /><label for="5-star" title="Amazing">5 stars</label>
+                    <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Good">4 stars</label>
+                    <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average">3 stars</label>
+                    <input type="radio" id="2-star" name="rating" value="2" checked /><label for="2-star" title="Not Good">2 stars</label>
+                    <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 star</label>
+                {% elif book_to_edit.rate == '3' %}    
+                    <input type="radio" id="5-star" name="rating" value="5" /><label for="5-star" title="Amazing">5 stars</label>
+                    <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Good">4 stars</label>
+                    <input type="radio" id="3-star" name="rating" value="3" checked /><label for="3-star" title="Average">3 stars</label>
+                    <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good">2 stars</label>
+                    <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 star</label>
+                {% elif book_to_edit.rate == '4' %}    
+                    <input type="radio" id="5-star" name="rating" value="5" /><label for="5-star" title="Amazing">5 stars</label>
+                    <input type="radio" id="4-star" name="rating" value="4" checked /><label for="4-star" title="Good">4 stars</label>
+                    <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average">3 stars</label>
+                    <input type="radio" id="2-star" name="rating" value="2"  /><label for="2-star" title="Not Good">2 stars</label>
+                    <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 star</label>
+                {% elif book_to_edit.rate == '5' %}    
+                    <input type="radio" id="5-star" name="rating" value="5" checked /><label for="5-star" title="Amazing">5 stars</label>
+                    <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Good">4 stars</label>
+                    <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average">3 stars</label>
+                    <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good">2 stars</label>
+                    <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 star</label> 
+                {% endif%}       
+                </ul>
+                <div class="Informations1">
+                    <div class="BookTitle">
+                        <div class="Text">Title: <b>{{ form.title(class="form-control", value=book_to_edit.title) }}</b></div>
+                    </div>
+                    <div class="BookAuthor">
+                        <div class="Text">Author: <b>{{ form.author(class="form-control", value=book_to_edit.author) }}</b></div>
+                    </div>
+                </div>
+                <div class="Information2">
+                    <div class="BookSeries">
+                        <div class="Text">Series: <b>{{ form.series(class="form-control", value=book_to_edit.series) }}</b></div>
+                    </div>
+                    <div class="BookPages">
+                        <div class="Text">Pages:<b>{{ form.pages(class="form-control", value=book_to_edit.pages) }}</b></div>
+                    </div>
+                    <div class="BookVolume">
+                        <div class="Text">Volume:<b>{{ form.volume(class="form-control", value=book_to_edit.volume) }}</b></div>
+                    </div>
+                    <div class="BookCover">
+                        <div class="Text">Cover:<b>{{ form.cover(class="form-control", value=book_to_edit.cover) }}</b></div>
+                    </div>
+                </div>
+                <div class="Information3">
+                    <div class="BookPublisher">
+                        <div class="Text">Publisher:<b>{{ form.publisher(class="form-control", value=book_to_edit.publisher) }}</b></div>
+                    </div>
+                    <div class="BookPublishDate">
+                        <div class="Text">PublishDate:<b>{{ form.publishDate(class="form-control", value=book_to_edit.publishDate) }}</b></div>
+                    </div>
+                    <div class="BookISBN">
+                        <div class="Text">ISBN:<b>{{ form.isbn(class="form-control", value=book_to_edit.isbn) }}</b></div>
+                    </div>
+                </div>
+                <div class="Information4">
+                    <div class="Note">
+                         <div class="Text">Note:
+                            
+                                {{ form.note(class="form-control Note", rows="20", column="1", id="note", maxlength="450") }}                                          
+
+                       </div>   
+                    </div>
+                </div> 
+            </div>
+        </form>
+        </section>
+    </div>
+       
+    <script src="../static/js/editBook.js"></script>
+    <script>
+        value ="{{book_to_edit.description}}";
+        document.getElementById('textarea').value = value;
+       
+	    value2 ="{{book_to_edit.note}}";
+        document.getElementById('note').value = value2;
+
+        </script>
+    <!-- Dodaj link do Bootstrap JavaScript (opcjonalnie) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+</body>
+</html>

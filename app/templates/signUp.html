@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/signUpPage.css" />
+    <!-- Boxicons CSS -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet" />
+    <title>HomeLIB - singUp</title>
+  </head>
+
+  <body>
+    {% for message in get_flashed_messages() %}
+
+    <div
+      class="alert alert-warning alert-dismissible fade show hideMe"
+      role="alert">
+      <strong class="hideMe">{{message}}</strong>
+    </div>
+
+    {% endfor %}
+
+    <section class="home">
+      <h2 id="textLine2">Sign Up to your home library</h2>
+      <!-- Form input -->
+      <form class="form-box" method="POST">
+        {{ form.hidden_tag() }}
+        <!-- Login input -->
+        <div class="form-outline mb-4 login">
+          <i class="bx bx-user-circle"></i>
+          {{ form.username(class="form-control", placeholder="Login", id="login") }}
+          <img id="line1" src="../static/images/interface/line.png" />
+        </div>
+        <!-- Email input -->
+        <div class="form-outline mb-4 email">
+          <i class="bx bx-envelope"></i>
+          {{ form.email(class="form-control", placeholder="Email", id="email")}}
+          <img id="line1" src="../static/images/interface/line.png" />
+        </div>
+
+        <!-- Password input 1 -->
+        <div class="form-outline mb-4 password">
+          <i class="bx bx-lock"></i>
+          {{ form.password_hash(class="form-control", placeholder="Password", id="pass", type="password") }}
+          <img id="line2" src="../static/images/interface/line.png" />
+        </div>
+
+        <!-- Password input 2 -->
+        <div class="form-outline mb-4 passwordConfirm">
+          <i class="bx bx-lock"></i>
+          {{ form.password_hash2(class="form-control", placeholder="Password Confirm", id="pass2", type="password") }}
+          <img id="line2" src="../static/images/interface/line.png" />
+        </div>
+
+        <!-- Submit button -->
+        <div id="signUp">
+          {{ form.submit(class="btn btn-primary signUpBtn")}}
+        </div>
+
+        <div class="col">
+          <!-- Simple link -->
+          <a id="signInLink" href="{{ url_for('login') }}">sign In</a>
+        </div>
+      </form>
+    </section>
+    <script src="../static/js/signUpPage.js"></script>
+  </body>
+</html>

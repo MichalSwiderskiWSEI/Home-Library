@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/loginPage.css" />
+    <!-- Boxicons CSS -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>HomeLIB</title>
+  </head>
+
+  <body>
+    {% for message in get_flashed_messages() %}
+
+    <div
+      class="alert alert-warning alert-dismissible fade show hideMe"
+      role="alert"
+    >
+      <strong class="hideMe">{{message}}</strong>
+    </div>
+
+    {% endfor %}
+
+    <section class="home">
+      <h1 id="textLine1">Welcome!</h1>
+      <h2 id="textLine2">To your home library</h2>
+      <form class="form-box" method="POST">
+        <!-- Login input -->
+        <div class="form-outline mb-4 log">
+          <i class="bx bx-user-circle"></i>
+          {{ form.username(class="form-control", placeholder="Login") }}
+          <img id="line1" src="../static/images/interface/line.png" />
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4" id="pas">
+          <i class="bx bx-lock"></i>
+          {{ form.password(class="form-control", placeholder="Password") }}
+          <img id="line2" src="../static/images/interface/line.png" />
+        </div>
+
+        <!-- 2 column grid layout for inline styling -->
+        <div class="row mb-4">
+          <div class="col d-flex justify-content-center">
+            <!-- Checkbox -->
+            <div class="form-check">
+              {{ form.remember_me(class="form-check-input",
+              id="form2Example31")}}
+              <label
+                id="rememberMe"
+                class="form-check-label"
+                for="form2Example31"
+              >
+                forget Me
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- Submit button -->
+        <div id="signInBtn">
+          {{ form.submit(class="btn btn-primary signInBtn")}}
+        </div>
+        <div class="col">
+          <!--<a href="#!">Forgot password?</a>  -->
+          <a id="signUpLink" href="{{ url_for('signUp') }}">sign Up</a>
+        </div>
+      </form>
+    </section>
+    <script src="../static/js/loginPage.js"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

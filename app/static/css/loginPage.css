@@ -1,0 +1,258 @@
+/* ----- Imports and global ----- */
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap");
+
+* {
+  font-family: "IBM Plex Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ----- Veriables ----- */
+
+:root {
+  /* ----- Colors ----- */
+  --body-color: #e4e9f7;
+  --sidebar-color: #fff;
+  --primary-color: #695cfe;
+  --primary-color-light: #f6f5ff;
+  --toggle-color: #ddd;
+  --text-color: #000;
+  --text2-color: #fff;
+  --icon-color: #000;
+  --icon2-color: #000;
+}
+
+/* ----- Conteners and HTML ----- */
+
+body {
+  overflow: hidden;
+  height: 100vh;
+  background: var(--body-color);
+  transition: var(--tran-02);
+  background: url("https://kozminska.home.pl/img/background_logPage3.png")
+    no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* ----- Class elements ----- */
+
+.btn-close {
+  color: var(--text2-color) !important;
+}
+
+.btn-primary {
+  width: 10rem;
+  height: 68px;
+  border-radius: 12px !important;
+  margin-left: 24.9rem;
+  margin-top: -24px;
+  background: black !important;
+  font-size: 2rem !important;
+  border: transparent !important;
+  text-align: center !important;
+  line-height: 34px !important;
+  font-weight: 500 !important;
+}
+
+.col {
+  margin-top: 2rem;
+}
+
+.col a {
+  margin-left: 8.2rem;
+  font-size: 16px !important;
+  text-decoration: none;
+  color: #6d6d6d;
+}
+
+.col a:hover {
+  color: #695cfe;
+  text-decoration: none;
+}
+
+.mb-4 {
+  margin-top: -14px;
+}
+
+.form-box {
+  width: 600px;
+  height: 500px;
+  position: absolute;
+  left: 5%;
+  top: 49%;
+}
+
+.form-box .form-outline input {
+  min-width: 440px;
+  width: 440px;
+  margin-left: 125px;
+  margin-top: -56px;
+  margin-bottom: 85px;
+  background: transparent;
+  font-size: 25px;
+  padding-left: -1rem;
+  border-color: transparent;
+  border: none;
+  color: var(--primary-color);
+}
+
+.form-box .form-outline input:active {
+  color: var(--primary-color);
+}
+
+.form-check {
+  font-size: 25px;
+  margin-left: -230px;
+  margin-top: -120px;
+}
+
+.form-check input[type="checkbox"] {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: transparent;
+  width: 24px;
+  height: 24px;
+  margin-top: 2rem;
+  accent-color: black !important;
+  margin-left: -82px;
+}
+
+.form-check label {
+  margin-left: 10px;
+  margin-top: 2rem !important;
+  font-size: 16px !important;
+  color: #6d6d6d;
+}
+
+.form-check-label:hover {
+  color: var(--primary-color);
+}
+
+.form-control {
+  padding: 0 !important;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+  color: var(--primary-color);
+}
+
+.form-outline i {
+  margin-left: 40px;
+  font-size: 40px;
+  color: #fff !important;
+  background: #000;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signInBtn:hover {
+  color: var(--primary-color);
+}
+
+/* ----- Id elements ----- */
+
+#form2Example31 {
+  background-color: var(--primary-color);
+}
+
+#log {
+  margin-top: -70px !important;
+}
+
+#line1 {
+  width: 430px;
+  height: 2px;
+  margin-top: -190px;
+  margin-left: 128px;
+  z-index: -1;
+}
+
+#line2 {
+  width: 430px;
+  height: 2px;
+  margin-top: -190px;
+  margin-left: 128px;
+  z-index: -1;
+}
+
+#pas {
+  margin-top: -70px !important;
+}
+
+#signUpLink {
+  margin-left: 29.5rem;
+  font-size: 1.3rem !important;
+  font-weight: 400;
+}
+
+#submit:hover {
+  color: var(--primary-color);
+}
+
+/* ----- Heads ----- */
+
+#textLine1 {
+  padding-top: 60px;
+  position: flex;
+  font-size: 80px !important;
+  font-weight: 100 !important;
+  text-align: center;
+}
+
+#textLine2 {
+  padding-top: 10px;
+  position: flex;
+  font-size: 40px !important;
+  font-weight: 100 !important;
+  text-align: center;
+}
+
+/* ----- Message ----- */
+
+.alert,
+.alert-warning {
+  position: absolute !important;
+  z-index: 1000;
+  width: 100% !important;
+  background-color: var(--primary-color) !important;
+  color: var(--text2-color) !important;
+  font-size: 1.2rem;
+}
+
+.hideMe {
+  -webkit-animation: cssAnimation 1s forwards;
+  animation: cssAnimation 2s forwards;
+}
+
+@keyframes cssAnimation {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes cssAnimation {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

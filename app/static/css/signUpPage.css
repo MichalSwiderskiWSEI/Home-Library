@@ -1,0 +1,237 @@
+/* ----- Imports and global ----- */
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap");
+
+* {
+  font-family: "IBM Plex Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ----- Veriables ----- */
+
+:root {
+  /* ----- Colors ----- */
+  --body-color: #e4e9f7;
+  --sidebar-color: #fff;
+  --primary-color: #695cfe;
+  --primary-color-light: #f6f5ff;
+  --toggle-color: #ddd;
+  --text-color: #000;
+  --text2-color: #fff;
+  --icon-color: #000;
+  --icon2-color: #000;
+}
+
+/* ----- Conteners and HTML ----- */
+
+body {
+  overflow: hidden;
+  height: 100vh;
+  background: var(--body-color);
+  transition: var(--tran-02);
+  background: url("https://kozminska.home.pl/img/background_logPage3.png")
+    no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* ----- Class elements ----- */
+
+.btn-close {
+  color: var(--text2-color) !important;
+}
+
+.btn-primary {
+  width: 10rem;
+  height: 68px;
+  border-radius: 12px !important;
+  margin-left: 24.9rem;
+  margin-top: 4.36rem;
+  background: black !important;
+  font-size: 2rem !important;
+  border: transparent !important;
+  text-align: center !important;
+  line-height: 34px !important;
+  font-weight: 500 !important;
+}
+
+.btn-primary.dropdown-toggle:focus {
+	color: var(--primary-color);
+	box-shadow: none !important;
+}
+
+div:hover.btn-primary{
+	color: var(--primary-color);
+	box-shadow: none !important;
+}
+
+.btn-primary:hover a {
+	color: var(--primary-color);
+	box-shadow: none !important;
+}
+
+.btn-primary:focus {
+	color: var(--primary-color);
+	box-shadow: none !important;
+}
+
+.col {
+  margin-top: 2rem;
+}
+
+.col a {
+  margin-left: 15.4rem;
+  font-size: 16px !important;
+  text-decoration: none;
+  color: #6d6d6d;
+}
+
+.col a:hover {
+  color: #695cfe;
+  text-decoration: none;
+}
+
+.form-box {
+  position: absolute;
+  left: 5%;
+  top: 22%;
+}
+
+.form-box .form-outline input {
+  background: transparent;
+  padding-left: 8rem;
+  padding-bottom: 2rem;
+  font-size: 25px;
+  border-color: transparent;
+  border: none;
+  color: var(--primary-color);
+}
+  
+.form-control:focus {
+	box-shadow: none !important;
+	color: var(--primary-color);
+}
+
+.form-outline i {
+  margin-left: 2.5rem;
+  margin-top: 0rem;
+  margin-bottom: -2.51rem;
+  font-size: 40px;
+  color: #fff !important;
+  background: #000;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-outline .mb-4 .login{
+	margin-bottom: -3rem !important;
+	margin-top: -6rem !important;
+}
+
+.form-outline .mb-4 .email{
+	margin-bottom: -3rem !important;
+	margin-top: 0rem !important;
+}
+
+.form-outline .mb-4 .password{
+	margin-bottom: -3rem !important;
+	margin-top: 0rem !important;
+}
+
+.form-outline .mb-4 .passwordConfirm{
+	margin-bottom: -3rem !important;
+	margin-top: 0rem !important;
+}
+
+/* ----- Id elements ----- */
+
+#form2Example31 {
+  background-color: var(--primary-color);
+}
+
+#line1 {
+  width: 430px;
+  height: 2px;
+  margin-top: -3.1rem;
+  margin-left: 8rem;
+  z-index: -1;
+}
+
+#line2 {
+  width: 430px;
+  height: 2px;
+  margin-top: -3.1rem;
+  margin-left: 8rem;
+  z-index: -1;
+}
+
+#signInLink {
+	margin-left: 30rem;
+	font-size: 1.3rem !important;
+	font-weight: 400;
+  }
+
+#submit:hover {
+  color: var(--primary-color);
+}
+
+#signUp:hover {
+  color: var(--primary-color);
+}
+
+/* ----- Heads ----- */
+
+#textLine2 {
+  padding-top: 11rem;
+  position: flex;
+  font-size: 40px !important;
+  font-weight: 100 !important;
+  text-align: center;
+}
+
+/* ----- Message ----- */
+
+.alert,
+.alert-warning {
+  position: absolute !important;
+  z-index: 1000;
+  width: 100% !important;
+  background-color: var(--primary-color) !important;
+  color: var(--text2-color) !important;
+  font-size: 1.2rem;
+}
+
+.hideMe {
+  -webkit-animation: cssAnimation 1s forwards;
+  animation: cssAnimation 2s forwards;
+}
+
+@keyframes cssAnimation {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes cssAnimation {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
